@@ -11,7 +11,20 @@ export class AppComponent implements OnInit {
   constructor(private readonly router: RouterExtensions) {}
 
   ngOnInit(): void {
-    this.backNavigationDemo();
+    // this.backNavigationDemo();
+    this.simpleNavigationDemo();
+  }
+
+  simpleNavigationDemo(): void {
+    interval(250).pipe(tap(i => {
+      const step = i % 2;
+      if (step === 0) {
+        this.router.navigate(['youtube'])
+      }
+      if (step === 1) {
+        this.router.navigate(['facebook'])
+      }
+    })).subscribe();
   }
   
   backNavigationDemo(): void {
