@@ -12,7 +12,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // this.backNavigationDemo();
-    this.simpleNavigationDemo();
+    // this.simpleNavigationDemo();
+    // this.clearHistoryDemo();
+  }
+
+  clearHistoryDemo(): void {
+    interval(250).pipe(tap(i => {
+      const step = i % 2;
+      if (step === 0) {
+        this.router.navigate(['youtube'], {clearHistory: true})
+      }
+      if (step === 1) {
+        this.router.navigate(['facebook'], {clearHistory: true})
+      }
+    })).subscribe();
   }
 
   simpleNavigationDemo(): void {
