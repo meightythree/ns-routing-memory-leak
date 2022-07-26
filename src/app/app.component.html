@@ -1,3 +1,7 @@
 <GridLayout>
-  <page-router-outlet></page-router-outlet>
+  <ng-container *ngIf="activeComponent === null">
+    <page-router-outlet></page-router-outlet>
+  </ng-container>
+  <WebView *ngIf="activeComponent === 'youtube'" src="https://youtube.com" width="100%" height="100%"></WebView>
+  <WebView *ngIf="activeComponent === 'facebook'" src="https://facebook.com" width="100%" height="100%"></WebView>
 </GridLayout>

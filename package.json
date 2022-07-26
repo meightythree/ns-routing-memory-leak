@@ -1,5 +1,5 @@
 {
-  "name": "ng-router-module",
+  "name": "ns-navigation-memory-leak",
   "main": "./src/main.ts",
   "version": "1.0.0",
   "private": true,

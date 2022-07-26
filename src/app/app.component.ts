@@ -7,6 +7,7 @@ import { interval, tap } from 'rxjs'
   templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
+  activeComponent = null;
 
   constructor(private readonly router: RouterExtensions) {}
 
@@ -14,6 +15,19 @@ export class AppComponent implements OnInit {
     // this.backNavigationDemo();
     // this.simpleNavigationDemo();
     // this.clearHistoryDemo();
+    // this.ifRouting();
+  }
+
+  ifRouting(): void {
+    interval(250).pipe(tap(i => {
+      const step = i % 2;
+      if (step === 0) {
+        this.activeComponent = 'youtube'
+      }
+      if (step === 1) {
+        this.activeComponent = 'facebook'
+      }
+    })).subscribe();
   }
 
   clearHistoryDemo(): void {
